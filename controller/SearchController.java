@@ -6,7 +6,6 @@ import service.PhoneService;
 import service.SearchService;
 import service.TVService;
 
-import java.io.*;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -159,6 +158,7 @@ public class SearchController {
             }
         }
     }
+
     public void categorySearch() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("===============================================");
@@ -189,6 +189,7 @@ public class SearchController {
         PhoneService phoneService = new PhoneService();
         phoneService.allPhoneList();
     }
+
     private void showSearchName() {
         String list = """
                 \n***  Search chances ***
@@ -200,6 +201,7 @@ public class SearchController {
                 """;
         System.out.println(list);
     }
+
     private void showCategory() {
         String category = """
                 \n** Category List **

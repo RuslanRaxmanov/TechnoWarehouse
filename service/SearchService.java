@@ -1,11 +1,9 @@
 package service;
 
 import controller.BaseController;
-import dto.*;
-import repository.LaptopRepository;
-import repository.PhoneRepository;
+import dto.BaseDTO;
+import dto.UnversalDTO;
 import repository.SearchRepository;
-import repository.TVRepository;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -14,15 +12,8 @@ import java.util.Scanner;
 public class SearchService {
 
     public List<UnversalDTO> searchName(String name) {
-        SearchRepository searchRepository = new SearchRepository();
-        LaptopRepository laptopRepository = new LaptopRepository();
-        TVRepository tvRepository = new TVRepository();
-        PhoneRepository phoneRepository = new PhoneRepository();
-
-        List<PhoneDTO> phoneDTOList = phoneRepository.getListPhone();
-        List<TVDTO> tvdtoList = tvRepository.getListTv();
-        List<LaptopDTO> laptopDTOList = laptopRepository.getListLaptop();
-        List<UnversalDTO> list = searchRepository.fullData(phoneDTOList, laptopDTOList, tvdtoList);
+        BaseController baseController = new BaseController();
+        List<UnversalDTO> list = baseController.get();
         List<UnversalDTO> searchList = new LinkedList<>();
 
         int count = 1;

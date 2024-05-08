@@ -28,6 +28,7 @@ public class MainController {
                     baseController.rangeInput();
                     break;
                 case "5":
+                    baseController.allTechno();
                     break;
                 case "6":
                     about();

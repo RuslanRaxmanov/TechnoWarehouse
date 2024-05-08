@@ -6,6 +6,8 @@ import repository.PhoneRepository;
 import repository.SearchRepository;
 import repository.TVRepository;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -120,6 +122,77 @@ public class BaseController {
                 count++;
             }
         }
+    }
+
+    public void allTechno() {
+        Scanner scanner = new Scanner(System.in);
+        boolean b = true;
+        while (b) {
+            showMenu();
+            System.out.print("Enter action: ");
+            String action = scanner.next();
+            switch (action) {
+                case "1":
+                    getAllTechno(true);
+                    break;
+                case "2":
+                    getAllTechno(false);
+                    break;
+                case "0":
+                    b = false;
+                    break;
+                default:
+                    System.out.println("Select from the menu !!!");
+            }
+        }
+    }
+
+    public void getAllTechno(Boolean sortDate) {
+        List<UnversalDTO> list = get();
+        Collections.sort(list, new Comparator<UnversalDTO>() {
+            @Override
+            public int compare(UnversalDTO o1, UnversalDTO o2) {
+                if (sortDate == true) {
+                    return o2.getCreatedDate().compareTo(o1.getCreatedDate());
+                }
+                return o1.getCreatedDate().compareTo(o2.getCreatedDate());
+            }
+        });
+        int count = 1;
+        for (UnversalDTO unversalDTO : list) {
+            if (count == 1) {
+                System.out.println("===============================================");
+            }
+            System.out.println("id : " + count);
+            System.out.println("Name : " + unversalDTO.getName());
+            System.out.println("Category : " + unversalDTO.getCategory());
+            System.out.println("Price : " + unversalDTO.getPrice());
+            System.out.println("Quantity : " + unversalDTO.getQuantity());
+            if (unversalDTO.getColor() != null) {
+                System.out.println("Color : " + unversalDTO.getColor());
+            }
+            if (unversalDTO.getProtsessor() != null) {
+                System.out.println("Protsessor : " + unversalDTO.getProtsessor());
+            }
+            if (unversalDTO.getDispley() != null) {
+                System.out.println("Displey : " + unversalDTO.getDispley());
+            }
+            if (unversalDTO.getMemory() != null) {
+                System.out.println("Memory : " + unversalDTO.getMemory());
+            }
+            System.out.println("CreatedDate : " + unversalDTO.getCreatedDate());
+            System.out.println("===============================================");
+            count++;
+        }
+    }
+
+    public void showMenu() {
+        String menuSort = """
+                \n1. New Products 
+                2. Old Products 
+                0. Exit
+                """;
+        System.out.println(menuSort);
     }
 
 }
