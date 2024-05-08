@@ -21,6 +21,7 @@ public class MainController {
                     searchController.searchByNameMenu();
                     break;
                 case "3":
+                    searchController.categorySearch();
                     break;
                 case "4":
                     break;

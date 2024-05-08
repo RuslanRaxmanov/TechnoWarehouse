@@ -1,7 +1,10 @@
 package controller;
 
 import dto.UnversalDTO;
+import service.LaptopService;
+import service.PhoneService;
 import service.SearchService;
+import service.TVService;
 
 import java.io.*;
 import java.util.Collections;
@@ -156,6 +159,36 @@ public class SearchController {
             }
         }
     }
+    public void categorySearch() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("===============================================");
+        boolean b = true;
+        while (b) {
+            showCategory();
+            System.out.print("Enter action: ");
+            String action = scanner.next();
+            switch (action) {
+                case "1" -> phone();
+                case "2" -> laptop();
+                case "3" -> tv();
+                case "0" -> b = false;
+                default -> System.out.println("Select from the menu !!!");
+            }
+        }
+    }   private void tv() {
+        TVService tvService = new TVService();
+        tvService.allTvList();
+    }
+
+    private void laptop() {
+        LaptopService laptopService = new LaptopService();
+        laptopService.allLaptopList();
+    }
+
+    private void phone() {
+        PhoneService phoneService = new PhoneService();
+        phoneService.allPhoneList();
+    }
     private void showSearchName() {
         String list = """
                 \n***  Search chances ***
@@ -166,5 +199,15 @@ public class SearchController {
                 0. Exit              
                 """;
         System.out.println(list);
+    }
+    private void showCategory() {
+        String category = """
+                \n** Category List **
+                1. Phone 
+                2. Laptop
+                3. Tv
+                0. Exit
+                """;
+        System.out.println(category);
     }
 }

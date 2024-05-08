@@ -5,6 +5,7 @@ import dto.TVDTO;
 import repository.TVRepository;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 public class TVService {
@@ -21,4 +22,26 @@ public class TVService {
         tvRepository.addTV(dto);
     }
 
+    public void allTvList() {
+        TVRepository tvRepository = new TVRepository();
+        List<TVDTO> tvdtoList = tvRepository.getListTv();
+        if (tvdtoList.isEmpty()) {
+            System.out.printf("\nFile is empty\n");
+        }
+        int count = 1;
+        for (TVDTO tvdto : tvdtoList) {
+            if (count == 1) {
+                System.out.println("===============================================");
+            }
+            System.out.println("id : " + count);
+            System.out.println("Name : " + tvdto.getName());
+            System.out.println("Category : " + tvdto.getCategory());
+            System.out.println("Price : " + tvdto.getPrice());
+            System.out.println("Quantity : " + tvdto.getQuantity());
+            System.out.println("Displey : " + tvdto.getDispley());
+            System.out.println("CreatedDate : " + tvdto.getCreatedDate());
+            System.out.println("===============================================");
+            count++;
+        }
+    }
 }
