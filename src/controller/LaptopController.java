@@ -1,7 +1,7 @@
-package controller;
+package src.controller;
 
-import dto.BaseDTO;
-import service.LaptopService;
+import src.dto.BaseDTO;
+import src.service.LaptopService;
 
 import java.util.Scanner;
 

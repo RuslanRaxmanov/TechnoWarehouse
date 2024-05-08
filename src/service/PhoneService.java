@@ -1,8 +1,8 @@
-package service;
+package src.service;
 
-import dto.BaseDTO;
-import dto.PhoneDTO;
-import repository.PhoneRepository;
+import src.dto.BaseDTO;
+import src.dto.PhoneDTO;
+import src.repository.PhoneRepository;
 
 import java.time.LocalDate;
 import java.util.List;

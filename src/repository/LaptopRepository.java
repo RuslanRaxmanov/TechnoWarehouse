@@ -1,27 +1,27 @@
-package repository;
+package src.repository;
 
-import dto.PhoneDTO;
+import src.dto.LaptopDTO;
 
 import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PhoneRepository {
-    public void addPhone(PhoneDTO dto) {
+public class LaptopRepository {
+    public void addLaptop(LaptopDTO dto) {
         PrintWriter printWriter = null;
 
         try {
-            File file = new File("phone.txt");
+            File file = new File("laptop.txt");
 
-            printWriter = new PrintWriter(new FileWriter("phone.txt", true));
+            printWriter = new PrintWriter(new FileWriter("laptop.txt", true));
 
             if (!file.exists() || file.length() == 0) {
                 // Faylning birinchi qatoriga header ni yozish
-                printWriter.println("ID;Name;Category;Price;Quantity;Color;Memory;CreatedDate");
+                printWriter.println("ID;Name;Category;Price;Quantity;Color;Protsessor;Displey;Memory;CreatedDate");
             }
             String data = dto.getId() + ";" + dto.getName() + ";" + dto.getCategory() + ";" + dto.getPrice() + ";" + dto.getQuantity() + ";" +
-                    dto.getColor() + ";" + dto.getMemory() + ";" + dto.getCreatedDate() + "\n";
+                    dto.getColor() + ";" + dto.getProtsessor() + ";" + dto.getDispley() + ";" + dto.getMemory() + ";" + dto.getCreatedDate() + "\n";
             printWriter.write(data);
             System.out.println("\n Succsesfly Add Product \n");
         } catch (IOException e) {
@@ -33,24 +33,26 @@ public class PhoneRepository {
             }
         }
     }
-    public List<PhoneDTO> getListPhone() {
-        List<PhoneDTO> inventory = new ArrayList<>();
+    public List<LaptopDTO> getListLaptop(){
+        List<LaptopDTO> inventory = new ArrayList<>();
 
-        try (BufferedReader br = new BufferedReader(new FileReader("phone.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("laptop.txt"))) {
             br.readLine();
             String line;
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(";");
-                if (data.length == 8) {
-                    PhoneDTO item = new PhoneDTO();
+                if (data.length == 10) { // Assuming each line has 10 fields
+                    LaptopDTO item = new LaptopDTO();
                     item.setId(data[0]);
                     item.setName(data[1]);
                     item.setCategory(data[2]);
                     item.setPrice(Double.parseDouble(data[3]));
                     item.setQuantity(Integer.parseInt(data[4]));
                     item.setColor(data[5]);
-                    item.setMemory(Integer.parseInt(data[6]));
-                    item.setCreatedDate(LocalDate.parse(data[7]));
+                    item.setProtsessor(data[6]);
+                    item.setDispley(Double.parseDouble(data[7]));
+                    item.setMemory(Integer.parseInt(data[8]));
+                    item.setCreatedDate(LocalDate.parse(data[9]));
                     inventory.add(item);
                 }
             }
@@ -60,6 +62,4 @@ public class PhoneRepository {
 
         return inventory;
     }
-
-
 }

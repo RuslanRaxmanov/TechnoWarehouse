@@ -1,8 +1,8 @@
-package service;
+package src.service;
 
-import dto.BaseDTO;
-import dto.LaptopDTO;
-import repository.LaptopRepository;
+import src.dto.BaseDTO;
+import src.dto.LaptopDTO;
+import src.repository.LaptopRepository;
 
 import java.time.LocalDate;
 import java.util.List;

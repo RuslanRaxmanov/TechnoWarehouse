@@ -1,28 +1,27 @@
-package repository;
+package src.repository;
 
-import dto.TVDTO;
+import src.dto.PhoneDTO;
 
 import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TVRepository {
-
-    public void addTV(TVDTO dto) {
+public class PhoneRepository {
+    public void addPhone(PhoneDTO dto) {
         PrintWriter printWriter = null;
 
         try {
-            File file = new File("tv.txt");
+            File file = new File("phone.txt");
 
-            printWriter = new PrintWriter(new FileWriter("tv.txt", true));
+            printWriter = new PrintWriter(new FileWriter("phone.txt", true));
 
             if (!file.exists() || file.length() == 0) {
                 // Faylning birinchi qatoriga header ni yozish
-                printWriter.println("ID;Name;Category;Price;Quantity;Displey;CreatedDate");
+                printWriter.println("ID;Name;Category;Price;Quantity;Color;Memory;CreatedDate");
             }
             String data = dto.getId() + ";" + dto.getName() + ";" + dto.getCategory() + ";" + dto.getPrice() + ";" + dto.getQuantity() + ";" +
-                    dto.getDispley() + ";" + dto.getCreatedDate() + "\n";
+                    dto.getColor() + ";" + dto.getMemory() + ";" + dto.getCreatedDate() + "\n";
             printWriter.write(data);
             System.out.println("\n Succsesfly Add Product \n");
         } catch (IOException e) {
@@ -34,23 +33,24 @@ public class TVRepository {
             }
         }
     }
-    public List<TVDTO> getListTv() {
-        List<TVDTO> inventory = new ArrayList<>();
+    public List<PhoneDTO> getListPhone() {
+        List<PhoneDTO> inventory = new ArrayList<>();
 
-        try (BufferedReader br = new BufferedReader(new FileReader("tv.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("phone.txt"))) {
             br.readLine();
             String line;
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(";");
-                if (data.length == 7) {
-                    TVDTO item = new TVDTO();
+                if (data.length == 8) {
+                    PhoneDTO item = new PhoneDTO();
                     item.setId(data[0]);
                     item.setName(data[1]);
                     item.setCategory(data[2]);
                     item.setPrice(Double.parseDouble(data[3]));
                     item.setQuantity(Integer.parseInt(data[4]));
-                    item.setDispley(Double.valueOf(data[5]));
-                    item.setCreatedDate(LocalDate.parse(data[6]));
+                    item.setColor(data[5]);
+                    item.setMemory(Integer.parseInt(data[6]));
+                    item.setCreatedDate(LocalDate.parse(data[7]));
                     inventory.add(item);
                 }
             }
@@ -60,4 +60,6 @@ public class TVRepository {
 
         return inventory;
     }
+
+
 }

@@ -1,0 +1,8 @@
+ID;Name;Category;Price;Quantity;Color;Memory;CreatedDate
+6194be80-8311-4cf1-a2cb-76de481994e9;wda;Phone;123.0;12;f;213;2024-05-05
+33375af2-2fdd-4da3-8aca-5714c3019f68;sdaf;Phone;2313.0;213;asfef;1232;2024-05-05
+91779faa-0952-4aef-be47-9547a27dc58c;wawd;Phone;12300.0;123;asd;1231;2024-05-05
+bf88ef5c-d426-49fe-b5f7-2e837bf5b9d9;afda;Phone;1.2E8;123;sfdsa;123;2024-05-05
+9b92ebc5-3823-4af3-bfff-470ca3008f70;aaa;Phone;111.0;11;124;128;2024-05-05
+f8284bcc-e13d-476b-bfaa-a1b33686b4e9;scd;Phone;12.0;123;1d;12;2024-05-05
+656394fc-027e-4a1a-b656-d66acdc1c34d;qwd;Phone;21111.0;12;asd;123;2024-05-06

@@ -1,9 +1,9 @@
-package service;
+package src.service;
 
-import controller.BaseController;
-import dto.BaseDTO;
-import dto.UnversalDTO;
-import repository.SearchRepository;
+import src.controller.BaseController;
+import src.dto.BaseDTO;
+import src.dto.UnversalDTO;
+import src.repository.SearchRepository;
 
 import java.util.LinkedList;
 import java.util.List;

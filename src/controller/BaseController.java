@@ -1,10 +1,11 @@
-package controller;
+package src.controller;
 
-import dto.*;
-import repository.LaptopRepository;
-import repository.PhoneRepository;
-import repository.SearchRepository;
-import repository.TVRepository;
+import src.dto.*;
+import src.repository.LaptopRepository;
+import src.repository.PhoneRepository;
+import src.repository.SearchRepository;
+import src.repository.TVRepository;
+import src.service.BaseService;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -158,32 +159,7 @@ public class BaseController {
                 return o1.getCreatedDate().compareTo(o2.getCreatedDate());
             }
         });
-        int count = 1;
-        for (UnversalDTO unversalDTO : list) {
-            if (count == 1) {
-                System.out.println("===============================================");
-            }
-            System.out.println("id : " + count);
-            System.out.println("Name : " + unversalDTO.getName());
-            System.out.println("Category : " + unversalDTO.getCategory());
-            System.out.println("Price : " + unversalDTO.getPrice());
-            System.out.println("Quantity : " + unversalDTO.getQuantity());
-            if (unversalDTO.getColor() != null) {
-                System.out.println("Color : " + unversalDTO.getColor());
-            }
-            if (unversalDTO.getProtsessor() != null) {
-                System.out.println("Protsessor : " + unversalDTO.getProtsessor());
-            }
-            if (unversalDTO.getDispley() != null) {
-                System.out.println("Displey : " + unversalDTO.getDispley());
-            }
-            if (unversalDTO.getMemory() != null) {
-                System.out.println("Memory : " + unversalDTO.getMemory());
-            }
-            System.out.println("CreatedDate : " + unversalDTO.getCreatedDate());
-            System.out.println("===============================================");
-            count++;
-        }
+        BaseService.print(list);
     }
 
     public void showMenu() {

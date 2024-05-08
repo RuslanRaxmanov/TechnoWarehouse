@@ -1,10 +1,7 @@
-package controller;
+package src.controller;
 
-import dto.UnversalDTO;
-import service.LaptopService;
-import service.PhoneService;
-import service.SearchService;
-import service.TVService;
+import src.dto.UnversalDTO;
+import src.service.*;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -70,7 +67,7 @@ public class SearchController {
                 }
             });
             sort = false;
-            searchService.sortDate(unversalDTOS);
+            BaseService.print(unversalDTOS);
         } else if (sort == false) {
             Collections.sort(unversalDTOS, new Comparator<UnversalDTO>() {
                 @Override
@@ -79,7 +76,7 @@ public class SearchController {
                 }
             });
             sort = true;
-            searchService.sortDate(unversalDTOS);
+            BaseService.print(unversalDTOS);
         }
     }
 
@@ -95,8 +92,8 @@ public class SearchController {
             String priceInput = scanner.next();
             try {
                 id = Integer.parseInt(priceInput);
-                if (responsList.size() >= id-1) {
-                    delete(responsList, id-1);
+                if (responsList.size() >= id - 1) {
+                    delete(responsList, id - 1);
                     break;
                 }
             } catch (NumberFormatException e) {
@@ -133,8 +130,8 @@ public class SearchController {
             String priceInput = scanner.next();
             try {
                 id = Integer.parseInt(priceInput);
-                if (responsList.size() >= id-1) {
-                    update(responsList, id-1);
+                if (responsList.size() >= id - 1) {
+                    update(responsList, id - 1);
                     break;
                 }
             } catch (NumberFormatException e) {
@@ -175,7 +172,9 @@ public class SearchController {
                 default -> System.out.println("Select from the menu !!!");
             }
         }
-    }   private void tv() {
+    }
+
+    private void tv() {
         TVService tvService = new TVService();
         tvService.allTvList();
     }

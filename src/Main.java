@@ -1,5 +1,7 @@
-import controller.MainController;
-import db.Dbinit;
+package src;
+
+import src.controller.MainController;
+import src.db.Dbinit;
 
 public class Main {
     public static void main(String[] args) {

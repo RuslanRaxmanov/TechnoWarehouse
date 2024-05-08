@@ -1,5 +1,5 @@
 
-package controller;
+package src.controller;
 
 import java.util.Scanner;
 

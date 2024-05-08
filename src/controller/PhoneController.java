@@ -1,7 +1,7 @@
-package controller;
+package src.controller;
 
-import dto.BaseDTO;
-import service.PhoneService;
+import src.dto.BaseDTO;
+import src.service.PhoneService;
 
 import java.util.Scanner;
 

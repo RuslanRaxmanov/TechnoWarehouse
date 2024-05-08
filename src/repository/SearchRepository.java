@@ -1,9 +1,9 @@
-package repository;
+package src.repository;
 
-import dto.LaptopDTO;
-import dto.PhoneDTO;
-import dto.TVDTO;
-import dto.UnversalDTO;
+import src.dto.LaptopDTO;
+import src.dto.PhoneDTO;
+import src.dto.TVDTO;
+import src.dto.UnversalDTO;
 
 import java.io.*;
 import java.util.LinkedList;

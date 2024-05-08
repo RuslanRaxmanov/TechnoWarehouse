@@ -1,7 +1,7 @@
-package controller;
+package src.controller;
 
-import dto.BaseDTO;
-import service.TVService;
+import src.dto.BaseDTO;
+import src.service.TVService;
 
 import java.util.Scanner;
 

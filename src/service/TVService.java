@@ -1,8 +1,8 @@
-package service;
+package src.service;
 
-import dto.BaseDTO;
-import dto.TVDTO;
-import repository.TVRepository;
+import src.dto.BaseDTO;
+import src.dto.TVDTO;
+import src.repository.TVRepository;
 
 import java.time.LocalDate;
 import java.util.List;
