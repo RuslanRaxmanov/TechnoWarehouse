@@ -33,5 +33,33 @@ public class PhoneRepository {
             }
         }
     }
+    public List<PhoneDTO> getListPhone() {
+        List<PhoneDTO> inventory = new ArrayList<>();
+
+        try (BufferedReader br = new BufferedReader(new FileReader("phone.txt"))) {
+            br.readLine();
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] data = line.split(";");
+                if (data.length == 8) {
+                    PhoneDTO item = new PhoneDTO();
+                    item.setId(data[0]);
+                    item.setName(data[1]);
+                    item.setCategory(data[2]);
+                    item.setPrice(Double.parseDouble(data[3]));
+                    item.setQuantity(Integer.parseInt(data[4]));
+                    item.setColor(data[5]);
+                    item.setMemory(Integer.parseInt(data[6]));
+                    item.setCreatedDate(LocalDate.parse(data[7]));
+                    inventory.add(item);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return inventory;
+    }
+
 
 }

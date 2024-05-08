@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class MainController {
     public void start() {
+        SearchController searchController = new SearchController();
         showMenu();
         boolean b = true;
         while (b) {
@@ -17,6 +18,7 @@ public class MainController {
                     createNewProduct();
                     break;
                 case "2":
+                    searchController.searchByNameMenu();
                     break;
                 case "3":
                     break;
