@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class MainController {
     public void start() {
+        BaseController baseController = new BaseController();
         SearchController searchController = new SearchController();
         showMenu();
         boolean b = true;
@@ -24,6 +25,7 @@ public class MainController {
                     searchController.categorySearch();
                     break;
                 case "4":
+                    baseController.rangeInput();
                     break;
                 case "5":
                     break;
